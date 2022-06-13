@@ -26,11 +26,11 @@ function generateData() {
     console.debug('Generating data from seed: ', seed);
 
     // generate random data from seed
-    username = seed;
-    email = seed + '@example.com';
-    address = (Math.floor(Math.random() * (999 - 1 + 1)) + 1).toString() + ' Example St.';
-    phoneNo = '07' + Math.random().toString().slice(2, 5) + Math.random().toString().slice(2, 5) + Math.random().toString().slice(2, 5);
-    likesHaggis = Math.random() > 0.5;
+    username = '"' + seed + '"';
+    email = '"' + seed + '@example.com' + '"';
+    address = '"' + (Math.floor(Math.random() * (999 - 1 + 1)) + 1).toString() + ' Example St.' + '"';
+    phoneNo = '"' + '07' + Math.random().toString().slice(2, 5) + Math.random().toString().slice(2, 5) + Math.random().toString().slice(2, 5) + '"';
+    likesHaggis = '"' + Math.random() > 0.5 + '"';
 
     // array of generated data
     data = [username, email, address, phoneNo, likesHaggis];
@@ -87,9 +87,19 @@ function generateCSV() {
 
     // genereate a CSV file from the users 2d array
     var csv = '';
+    for (var i = 0; i < columns.length; i++) {
+        csv += '"' + columns[i] + '"';
+        if (i < columns.length - 1) {
+            csv += ',';
+        }
+    }
+    csv += '\n';
     for (var i = 0; i < users.length; i++) {
         for (var j = 0; j < users[i].length; j++) {
-            csv += users[i][j] + ',';
+            csv += '"' + users[i][j] + '"';
+            if (j < users[i].length - 1) {
+                csv += ',';
+            }
         }
         csv += '\n';
     }
