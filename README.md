@@ -1,7 +1,7 @@
 # csv-generator
 This project can generate a CSV file with user data sourced from a seed.
 
-<!-- ![screenshot](screenshot.png?raw=true "Screenshot") -->
+![screenshot](screenshot.png?raw=true "Screenshot")
 
 ## Usage
 Project can be downloaded as a zip and opened manually, or you can run one of these scripts on bash/powershell.
