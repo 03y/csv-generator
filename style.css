@@ -35,7 +35,7 @@ td {
     border: 1px solid #81B622;
 }
 
-tr:first-child {
+th {
     /* font-weight: bold; */
     color: #D6EEEE;
     background-color: #81B622;
