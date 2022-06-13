@@ -9,7 +9,7 @@ function errorMsg(msg) {
 // generated fields should be: username, email, address, phoneNo, likesHaggis (boolean)
 function generateData() {
     // get seed from form
-    var seed = document.getElementById('seed').value;
+    var seed = document.getElementById('seed-input').value;
     if (seed === '' || seed === null) {
         errorMsg('Seed cannot be null!');
         return;
@@ -45,7 +45,7 @@ function generateData() {
         // create HTML table
         var table = document.createElement('table');
         table.setAttribute('id', 'dataTable');
-        
+
         // create table head
         var tableHead = document.createElement('thead');
         // create top table row (columns)
@@ -77,6 +77,9 @@ function generateData() {
         var cell = row.insertCell(i);
         cell.innerHTML = data[i];
     }
+
+    // clear seed field
+    document.getElementById('seed').value = '';
 }
 
 function generateCSV() {
@@ -90,10 +93,10 @@ function generateCSV() {
         }
         csv += '\n';
     }
-    
+
     // prompt to download csv
     console.debug('Downloading CSV file...');
-    var blob = new Blob([csv], {type: 'text/csv'});
+    var blob = new Blob([csv], { type: 'text/csv' });
     var url = window.URL.createObjectURL(blob);
     var a = document.createElement('a');
     a.href = url;

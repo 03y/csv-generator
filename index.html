@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" href="style.css">
     <link id="favicon" rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <script src="dataGenerator.js"></script>
     <header>
         <title>CSV Generator</title>
         <h1 id="name">CSV Generator</h1>
@@ -11,11 +12,19 @@
 </head>
 
 <body>
-    <script src="dataGenerator.js"></script>
     <div id="user-input">
         <label for="seed">Seed:</label>
-        <input type="text" id="seed" name="seed">
+        <input type="text" id="seed-input" name="seed">
         <button id="btn-add" onclick="generateData()" class="button" >Add user</button>
+        <script>
+            // simulate button press when enter is pressed
+            document.getElementById('seed-input').addEventListener('keypress', function (e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('btn-add').click();
+                }
+            });
+        </script>
     </div>
 
     <div id="data"></div>
