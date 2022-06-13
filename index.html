@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link id="favicon" rel="shortcut icon" type="image/png" href="favicon.ico" />
+    <header>
+        <title>CSV Generator</title>
+        <h1 id="name">CSV Generator</h1>
+    </header>
+</head>
+
+<body>
+    <script src="dataGenerator.js"></script>
+    <div id="user-input">
+        <label for="seed">Seed:</label>
+        <input type="text" id="seed" name="seed">
+        <button id="btn-add" onclick="generateData()" class="button" >Add user</button>
+    </div>
+
+    <div id="data"></div>
+    
+    <div id="data-output">
+        <button id="btn-generate" onclick="generateCSV()" class="button" >Generate CSV</button>
+    </div>
+
+</body>
+<footer>
+    <p><a href="https://github.com/03y/csv-generator.git ">csv-generator</a> by kyle, 2022</p>
+</footer>
+
+</html>
