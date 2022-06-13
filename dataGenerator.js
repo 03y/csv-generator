@@ -79,7 +79,7 @@ function generateData() {
     }
 
     // clear seed field
-    document.getElementById('seed').value = '';
+    document.getElementById('seed-input').value = '';
 }
 
 function generateCSV() {
