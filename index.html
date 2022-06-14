@@ -15,22 +15,27 @@
     <div id="user-input">
         <label for="seed">Seed:</label>
         <input type="text" id="seed-input" name="seed">
-        <button id="btn-add" onclick="generateData()" class="button" >Add user</button>
+        <button id="btn-add" onclick="generateData()" class="button">Add user</button>
         <script>
-            // simulate button press when enter is pressed
-            document.getElementById('seed-input').addEventListener('keypress', function (e) {
+            document.getElementById('seed-input').addEventListener('keypress', function(e) {
+                // simulate button press when enter is pressed
+                const ok = 'abcedfghijklmnopqrstuvwxyz1234567890';
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     document.getElementById('btn-add').click();
+                } else if (!ok.includes(e.key.toString())) {
+                    // prevent symbols from being entered
+                    console.debug('Invalid character detected (' + e.key.toString() + ')!');
+                    e.preventDefault();
                 }
             });
         </script>
     </div>
 
     <div id="data"></div>
-    
+
     <div id="data-output">
-        <button id="btn-generate" onclick="generateCSV()" class="button" >Generate CSV</button>
+        <button id="btn-generate" onclick="generateCSV()" class="button">Generate CSV</button>
     </div>
 
 </body>

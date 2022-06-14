@@ -1,12 +1,12 @@
 users = []
 
+
 function errorMsg(msg) {
     console.error('Error: ' + msg);
     alert('Error: ' + msg);
 }
 
 // generate random user data from given seed
-// generated fields should be: username, email, address, phoneNo, likesHaggis (boolean)
 function generateData() {
     // get seed from form
     var seed = document.getElementById('seed-input').value;
@@ -17,7 +17,7 @@ function generateData() {
 
     if (users.length > 0) {
         for (var i = 0; i < users.length; i++) {
-            if (users[i][0] === seed) {
+            if (users[i][0].toString().replaceAll('\"', '') === seed.replaceAll('\"', '')) {
                 errorMsg('User already exists!');
                 return;
             }
@@ -75,7 +75,9 @@ function generateData() {
     var row = tbody.insertRow(tbody.rows.length);
     for (var i = 0; i < data.length; i++) {
         var cell = row.insertCell(i);
-        cell.innerHTML = data[i];
+        var temp = data[i];
+        temp = temp.toString().replaceAll('\"', '');
+        cell.innerHTML = temp;
     }
 
     // clear seed field
